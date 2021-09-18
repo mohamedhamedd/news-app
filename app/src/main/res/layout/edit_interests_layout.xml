@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Note:"
+        android:textColor="@color/main_color" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Make sure you type your interests correctly with right spelling to get exactly what you want."
+        android:textColor="@color/second_text" />
+
+    <EditText
+        android:id="@+id/interest_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
+        android:hint="Interest 1"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/interest_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
+        android:hint="Interest 2"
+        android:maxLength="30"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/interest_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_input"
+        android:hint="Interest 3"
+        android:maxLength="30"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/interest_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custom_input"
+        android:hint="Interest 4"
+        android:maxLength="30"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/update_interests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/main_color"
+        android:padding="25dp"
+        android:text="Update Interests"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</LinearLayout>

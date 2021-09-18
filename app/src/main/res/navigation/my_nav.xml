@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.home.view.HomeFragment"
+        android:label="Home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_webviewFragment"
+            app:destination="@id/webviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/breakingFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.breaking.view.BreakingFragment"
+        android:label="Breaking News"
+        tools:layout="@layout/fragment_breaking" >
+        <action
+            android:id="@+id/action_breakingFragment_to_breakingNewsViewerFragment"
+            app:destination="@id/breakingNewsViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.bookmark.view.BookmarkFragment"
+        android:label="Bookmarks"
+        tools:layout="@layout/fragment_bookmark">
+
+        <action
+            android:id="@+id/action_bookmarkFragment_to_webviewFragment"
+            app:destination="@id/webviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.settings.view.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.Search.view.SearchFragment"
+        android:label="Search" >
+        <action
+            android:id="@+id/action_searchFragment_to_webviewFragment"
+            app:destination="@id/webviewFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_sitesFragment"
+            app:destination="@id/sitesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webviewFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.webview.view.WebviewFragment"
+        android:label="Site"
+        tools:layout="@layout/fragment_webview" >
+        <argument
+            android:name="article"
+            app:argType="com.moapps.newsapp.breakingnews.data.models.news.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/sitesFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.sites.view.SitesFragment"
+        android:label="Source">
+        <argument
+            android:name="site"
+            app:argType="com.moapps.newsapp.breakingnews.data.models.sites.Site" />
+    </fragment>
+    <fragment
+        android:id="@+id/breakingNewsViewerFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.breakingviewer.view.BreakingNewsViewerFragment"
+        android:label="Breaking News"
+        tools:layout="@layout/fragment_breaking_news_viewer" >
+        <argument
+            android:name="breaking"
+            app:argType="com.moapps.newsapp.breakingnews.data.models.breaking.Breaking" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.moapps.newsapp.breakingnews.ui.fragments.categories.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
+</navigation>

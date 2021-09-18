@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/row_img_breaking"
+            android:layout_width="58dp"
+            android:layout_height="42dp"
+            android:scaleType="centerInside" />
+
+        <ProgressBar
+            android:id="@+id/row_progress_breaking"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/main_color" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/row_title_breaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Suspect of Paris Terror Attack That Killed 130 People Says He’s ‘Fighter of ISIS’"
+            android:textColor="@color/main_text"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/row_source_breaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="The Epoch Times"
+            android:textColor="@color/second_text"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/row_date_breaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_regular"
+            android:text="few minutes ago"
+            android:textColor="@color/second_text"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
