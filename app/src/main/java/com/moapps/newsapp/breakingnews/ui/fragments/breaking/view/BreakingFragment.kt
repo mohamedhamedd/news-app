@@ -94,7 +94,7 @@ class BreakingFragment : Fragment() {
     private fun handleRecyclerViewItemClick() {
         adapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable(Constants.ARGS_ARTICLE, it)
+                putSerializable(Constants.ARGS_BREAKING, it)
             }
             findNavController().navigate(
                 R.id.action_breakingFragment_to_breakingNewsViewerFragment,
