@@ -108,6 +108,8 @@ class SettingsFragment : Fragment() {
                         Status.SUCCESS -> {
                             progressDialog.dismiss()
                             showTSnackbar(binding.root,"Updated.")
+                            alertDialog.dismiss()
+
                         }
                         Status.ERROR -> {
                             progressDialog.dismiss()

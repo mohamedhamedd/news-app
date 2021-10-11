@@ -46,7 +46,7 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideRepoSites(
-        apiEndPoints: ApiEndPoints
+        apiEndPoints: ApiEndPoints,
     ): SitesRepo = SitesRepo(apiEndPoints)
 
     @Singleton

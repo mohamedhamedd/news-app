@@ -1,7 +1,9 @@
 package com.moapps.newsapp.breakingnews.ui.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,7 +70,6 @@ class BreakingNewsAdapter(var context: Context) :
             }
         }
 
-
     }
 
     private var onItemClickListener: ((Breaking) -> Unit)? = null
@@ -76,6 +77,7 @@ class BreakingNewsAdapter(var context: Context) :
     fun setOnItemClickListener(listener: ((Breaking) -> Unit)?) {
         onItemClickListener = listener
     }
+
 
     override fun getItemCount() = breakingNewsList.size
 

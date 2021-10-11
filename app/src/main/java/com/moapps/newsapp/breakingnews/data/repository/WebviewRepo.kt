@@ -10,7 +10,7 @@ class WebviewRepo(
 ) {
 
     suspend fun insertArticle(article: Article) =
-        bookmarkArticlesDao.insertArticles(article)
+        bookmarkArticlesDao.insertBookmarkArticles(article)
 
     suspend fun convertGoogleNewsLink(url: String) = apiEndPoints.convertGoogleNewsLink(url)
 

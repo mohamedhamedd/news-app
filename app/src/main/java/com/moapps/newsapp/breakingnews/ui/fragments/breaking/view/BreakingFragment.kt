@@ -90,10 +90,11 @@ class BreakingFragment : Fragment() {
         MediaPlayer.create(context, R.raw.pull_load).start()
     }
 
+
     private fun handleRecyclerViewItemClick() {
         adapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable(Constants.ARGS_BREAKING, it)
+                putSerializable(Constants.ARGS_ARTICLE, it)
             }
             findNavController().navigate(
                 R.id.action_breakingFragment_to_breakingNewsViewerFragment,
@@ -101,5 +102,4 @@ class BreakingFragment : Fragment() {
             )
         }
     }
-
 }

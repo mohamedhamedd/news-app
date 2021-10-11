@@ -21,8 +21,8 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 
 
-class NewsAdapter(var context: Context) :
-    RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
+class NewsBookmarkAdapter(var context: Context) :
+    RecyclerView.Adapter<NewsBookmarkAdapter.ArticleViewHolder>() {
 
     private var articlesList = listOf<Article?>()
 
@@ -31,7 +31,7 @@ class NewsAdapter(var context: Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.row_layout, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.row_layout_bookmarrk, parent, false)
         return ArticleViewHolder(view)
     }
 
@@ -75,14 +75,26 @@ class NewsAdapter(var context: Context) :
 
             }).into(holder.img)
 
-
         holder.itemView.apply {
             setOnClickListener {
                 onItemClickListener?.let { it(article) }
             }
         }
 
+        holder.deleteBookamrk.apply {
+            setOnClickListener {
+                onItemDeleteClickListener?.let { it(article) }
+            }
+        }
+
     }
+
+    private var onItemDeleteClickListener: ((Article) -> Unit)? = null
+
+    fun setOnItemDeleteClickListener(listener: ((Article) -> Unit)?) {
+        onItemDeleteClickListener = listener
+    }
+
 
     private var onItemClickListener: ((Article) -> Unit)? = null
 
@@ -99,6 +111,8 @@ class NewsAdapter(var context: Context) :
         var layout: LinearLayout = itemView.findViewById(R.id.layout_row)
         var date: TextView = itemView.findViewById(R.id.date_row)
         var source: TextView = itemView.findViewById(R.id.source_row)
+        var deleteBookamrk: ImageButton = itemView.findViewById(R.id.delete_bookmak_btn)
+
 
     }
 

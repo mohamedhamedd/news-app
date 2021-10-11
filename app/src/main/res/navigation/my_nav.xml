@@ -65,6 +65,9 @@
         <argument
             android:name="site"
             app:argType="com.moapps.newsapp.breakingnews.data.models.sites.Site" />
+        <action
+            android:id="@+id/action_sitesFragment_to_webviewFragment"
+            app:destination="@id/webviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/breakingNewsViewerFragment"

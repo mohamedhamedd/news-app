@@ -2,6 +2,7 @@ package com.moapps.newsapp.breakingnews.ui.fragments.home.view
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,6 @@ import com.moapps.newsapp.breakingnews.databinding.FragmentHomeBinding
 import com.moapps.newsapp.breakingnews.ui.adapter.NewsAdapter
 import com.moapps.newsapp.breakingnews.ui.fragments.home.viewmodel.HomeViewModel
 import com.moapps.newsapp.breakingnews.utils.*
-import com.moapps.newsapp.breakingnews.utils.Constants.ARGS_ARTICLE
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 
@@ -98,7 +98,7 @@ class HomeFragment : Fragment() {
     private fun handleRecyclerViewItemClick() {
         adapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable(ARGS_ARTICLE, it)
+                putSerializable(Constants.ARGS_ARTICLE, it)
             }
             findNavController().navigate(
                 R.id.action_homeFragment_to_webviewFragment,

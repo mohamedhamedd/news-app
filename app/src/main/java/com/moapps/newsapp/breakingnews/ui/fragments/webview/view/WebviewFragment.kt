@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -33,6 +34,8 @@ class WebviewFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentWebviewBinding.inflate(layoutInflater)
         val article = args.article
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = args.article.source
+
         setUpConvertLinkObserver(article.url)
 
 

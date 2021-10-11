@@ -14,7 +14,13 @@ interface ArticlesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertArticles(article: Article)
 
+
     @Query("DELETE FROM articles_table")
     suspend fun deleteArticles()
 
+
+    /*
+    @Delete(entity = Article::class)
+    suspend fun deleteArticles(article: Article)
+     */
 }

@@ -16,10 +16,9 @@ import com.moapps.newsapp.breakingnews.R
 import com.moapps.newsapp.breakingnews.data.models.news.Article
 import com.moapps.newsapp.breakingnews.databinding.FragmentBookmarkBinding
 import com.moapps.newsapp.breakingnews.ui.adapter.NewsAdapter
+import com.moapps.newsapp.breakingnews.ui.adapter.NewsBookmarkAdapter
 import com.moapps.newsapp.breakingnews.ui.fragments.bookmark.viewmodel.BookmarkViewModel
-import com.moapps.newsapp.breakingnews.utils.Status
-import com.moapps.newsapp.breakingnews.utils.hideError
-import com.moapps.newsapp.breakingnews.utils.showError
+import com.moapps.newsapp.breakingnews.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.WithFragmentBindings
 
@@ -29,7 +28,7 @@ class BookmarkFragment : Fragment() {
 
     private val viewmodel: BookmarkViewModel by viewModels()
     private lateinit var binding: FragmentBookmarkBinding
-    private lateinit var adapter: NewsAdapter
+    private lateinit var adapter: NewsBookmarkAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,13 +37,13 @@ class BookmarkFragment : Fragment() {
         // Inflate the layout for this fragment
         setupUI()
         setupObserver()
-        swipeToDeleteArticle()
         handleRecyclerViewItemClick()
+        handleRecyclerViewItemDeleteClick()
         return binding.root
     }
 
     private fun setupUI() {
-        adapter = NewsAdapter(requireContext())
+        adapter = NewsBookmarkAdapter(requireContext())
         binding.laterRv.layoutManager = LinearLayoutManager(context)
         binding.laterRv.adapter = adapter
     }
@@ -65,30 +64,19 @@ class BookmarkFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
-    private fun swipeToDeleteArticle() {
-        ItemTouchHelper(object :
-            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
+    private fun handleRecyclerViewItemDeleteClick() {
+        adapter.setOnItemDeleteClickListener {
+            viewmodel.deleteArticle(it).apply {
+                showTSnackbar(binding.root, "Deleted.")
             }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                viewmodel.deleteArticle(adapter.getArticleAt(viewHolder.adapterPosition)!!).apply {
-                    Snackbar.make(binding.root, "Deleted", Snackbar.LENGTH_SHORT).show()
-                }
-            }
-
-        }).attachToRecyclerView(binding.laterRv)
+        }
     }
+
 
     private fun handleRecyclerViewItemClick() {
         adapter.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable("article", it)
+                putSerializable(Constants.ARGS_ARTICLE, it)
             }
             findNavController().navigate(
                 R.id.action_bookmarkFragment_to_webviewFragment,

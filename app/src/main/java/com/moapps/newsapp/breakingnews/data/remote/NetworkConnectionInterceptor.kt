@@ -23,6 +23,7 @@ class NetworkConnectionInterceptor(val context: Context) : Interceptor {
         val connectivityManager =
                 applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
         connectivityManager?.let {
+
             it.getNetworkCapabilities(connectivityManager.activeNetwork)?.apply {
                 result = when {
                     hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true

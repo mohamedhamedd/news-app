@@ -14,7 +14,7 @@ interface BookmarkArticlesDao {
     fun getAllArticles(): LiveData<List<Article>>
 
     @Insert(entity = BookmarkArticles::class, onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertArticles(article: Article)
+    suspend fun insertBookmarkArticles(article: Article)
 
     @Delete(entity = BookmarkArticles::class)
     suspend fun deleteArticles(article: Article)

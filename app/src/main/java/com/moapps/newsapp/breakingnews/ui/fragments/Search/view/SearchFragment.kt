@@ -142,7 +142,7 @@ class SearchFragment : Fragment() {
     private fun handleRecyclerViewSearchItemClick() {
         adapterSearch.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putSerializable(ARGS_ARTICLE, it)
+                putSerializable(Constants.ARGS_ARTICLE, it)
             }
             findNavController().navigate(
                 R.id.action_searchFragment_to_webviewFragment,

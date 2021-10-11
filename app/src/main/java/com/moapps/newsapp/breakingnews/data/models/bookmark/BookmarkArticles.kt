@@ -1,12 +1,18 @@
 package com.moapps.newsapp.breakingnews.data.models.bookmark
 
-import androidx.room.Embedded
 import androidx.room.Entity
-import com.moapps.newsapp.breakingnews.data.models.news.Article
+import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "articles_bookmark_table", primaryKeys = ["id"])
+@Entity(tableName = "articles_bookmark_table")
 data class BookmarkArticles(
-    @Embedded
-    val article: Article
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val author: String,
+    val date: String,
+    val img: String,
+    val source: String,
+    val title: String,
+    val url: String,
+    val interest:String
 )

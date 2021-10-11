@@ -63,6 +63,32 @@
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/light_grey" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Contact us "
+            android:textColor="@color/main_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunito_regular"
+            android:text="moapps.yt@gmail.com "
+            android:textSize="18dp"
+            android:textColor="@color/black" />
+
 
     </LinearLayout>
 </layout>

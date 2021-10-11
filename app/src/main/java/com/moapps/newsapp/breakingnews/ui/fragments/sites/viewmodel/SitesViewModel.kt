@@ -18,6 +18,7 @@ class SitesViewModel @Inject constructor(
 
     private val siteResultMutableLiveData = MutableLiveData<Resource<List<Article>>>()
 
+
     fun getSiteResult(query_site: String): LiveData<Resource<List<Article>>> {
         siteResultMutableLiveData.value = Resource.loading(null)
 

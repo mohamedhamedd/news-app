@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moapps.newsapp.breakingnews.R
@@ -40,6 +41,7 @@ class SitesFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = args.site.name
         setupUI()
         setUpObserver(site.name)
+        handleRecyclerViewItemClick()
         return binding.root
     }
 
@@ -79,4 +81,15 @@ class SitesFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
+    private fun handleRecyclerViewItemClick() {
+        adapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable(Constants.ARGS_ARTICLE, it)
+            }
+            findNavController().navigate(
+                R.id.action_sitesFragment_to_webviewFragment,
+                bundle
+            )
+        }
+    }
 }

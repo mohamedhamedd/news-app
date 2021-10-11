@@ -105,4 +105,5 @@ class SearchViewModel @Inject constructor(
         return sitesMutableLiveData
     }
 
+
 }

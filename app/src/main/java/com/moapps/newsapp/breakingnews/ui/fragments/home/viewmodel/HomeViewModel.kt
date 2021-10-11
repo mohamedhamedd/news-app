@@ -44,6 +44,7 @@ class HomeViewModel @Inject constructor(
                 val result = response.body()
                 if (response.isSuccessful && result != null) {
                     homeRepo.deleteHomeArticles()
+
                     result.articles.forEach {
                         homeRepo.insertHomeArticles(it)
                     }
